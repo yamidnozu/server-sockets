@@ -32,6 +32,8 @@ export default class Server {
         console.log('Escuchando conexiones - sockets');
         this.io.on('connection', cliente => {
             console.log('cliente conectado');
+            // Escucha el  login del usuario oara configurarli
+            socket.configurarUsuario(cliente, this.io);
             // Escucha los mensajes
             socket.mensaje(cliente, this.io);
             // Escucha el evento de desconexión
